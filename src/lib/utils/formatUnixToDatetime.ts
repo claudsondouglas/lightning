@@ -7,5 +7,5 @@ export default function formatUnixToDatetime(unix: number): string {
         return 'n/a'
     }
 
-    return date.toLocaleDateString('pt-BR') + ' ás ' + date.toLocaleTimeString('pt-BR').slice(0, 5)
+    return date.toLocaleDateString('pt-BR') + ' às ' + date.toLocaleTimeString('pt-BR').slice(0, 5)
 }
