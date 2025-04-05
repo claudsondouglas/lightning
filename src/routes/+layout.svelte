@@ -12,6 +12,19 @@
 	});
 </script>
 
+<svelte:head>
+    <title>Lightning</title>
+    <meta name="description" content="Descubra o top lightning da meempool" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lightning" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="/og.png" />
+    <meta
+        property="og:description"
+        content="Lista dos 100 nodes mais bem conectados da rede lightning."
+    />
+</svelte:head>
+
 <main class="mx-auto max-w-screen-lg px-5 py-5">
 	<div class="flex items-center justify-between md:mb-5">
 		<div>
