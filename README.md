@@ -2,6 +2,9 @@
 SvelteKit and SvelteKit https://svelte.dev/<br/>
 TailwindCSS https://tailwindcss.com/
 
+
+i used https://flagcdn.com/ to get the flags using iso_code
+
 ## Steps to run
 Install all dependencies with `npm install` (or `pnpm install` or `yarn`)
 
