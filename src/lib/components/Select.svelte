@@ -38,7 +38,7 @@
 	}}
 >
 	<button
-		class="flex cursor-pointer flex-col rounded-xl bg-white p-3 px-5 text-left duration-300 hover:bg-gray-200 md:w-auto md:min-w-[250px] w-full"
+		class="flex cursor-pointer flex-col rounded-xl bg-white dark:bg-neutral-800 p-3 px-5 text-left duration-300 hover:bg-gray-200 dark:hover:bg-neutral-700 md:w-auto md:min-w-[250px] w-full"
 		onclick={() => (open = !open)}
 	>
 		<span class="-mb-1 text-xs font-thin opacity-45">{label}</span>
@@ -60,7 +60,7 @@
 	</button>
 	{#if open}
 		<div
-			class="absolute inset-x-0 top-[calc(100%_+_5px)] z-10 flex flex-col overflow-hidden rounded-2xl bg-white drop-shadow-xl"
+			class="absolute inset-x-0 top-[calc(100%_+_5px)] z-10 flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 drop-shadow-xl"
 			transition:slide
 		>
 			{#each options as option}

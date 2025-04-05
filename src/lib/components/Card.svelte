@@ -8,10 +8,10 @@
 	export let node : NodeItem, index: number;
 </script>
 
-<div class="cardnode bg-white p-5 w-full">
+<div class="cardnode bg-white dark:bg-neutral-800 p-5 w-full">
 	<div class="flex items-center justify-between gap-3">
 		<div class="flex items-center gap-3">
-			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white"
+			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 dark:bg-white text-white dark:text-neutral-800"
 				>{index}</span
 			>
 			<h2 class="text-lg font-bold md:text-xl">
@@ -52,9 +52,9 @@
 		</div>
 	</div>
 
-	<div class="mt-3 border-t border-gray-200 pt-3 flex flex-col gap-2">
+	<div class="mt-3 border-t border-gray-200 dark:border-neutral-700 pt-3 flex flex-col gap-2">
 		<div class="text-xs font-light">
-			<div id="placement-1" class="bg-transparent text-gray-500">
+			<div id="placement-1" class="bg-transparent text-gray-500 dark:text-gray-200">
 				Visto pela primeira em {formatUnixToDatetime(node.firstSeen)} e atualizado em {formatUnixToDatetime(
 					node.updatedAt
 				)}
@@ -63,7 +63,7 @@
 
 		<CardCopyButton value={node.publicKey}>
 			<span>
-				<KeyRound class="w-4 text-gray-600" />
+				<KeyRound class="w-4" />
 			</span>
 			<span class="flex-1 truncate">{node.publicKey}</span>
 		</CardCopyButton>

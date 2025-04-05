@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
     font-family: Bradford;
@@ -99,5 +99,5 @@
 
 body {
     font-family: 'Ginto', Arial, Helvetica, sans-serif;
-    @apply bg-gray-100;
+    @apply bg-[#F0F0E6] dark:bg-[#121212] dark:text-white;
 }

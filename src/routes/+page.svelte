@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as _ from "remeda";
+	import * as _ from 'remeda';
 	import { invalidateAll } from '$app/navigation';
 	import Card from '$lib/components/Card.svelte';
 	import CardLoading from '$lib/components/CardLoading.svelte';
@@ -18,53 +18,54 @@
 	let interval: any; // i need to clean the interval to not update two times if i click to make a reload
 
 	onMount(() => {
-		interval = setInterval(() => {
-			reload();
-		}, 30000);
-	});
+        const interval = setInterval(() => {
+            reload();
+        }, 60000);
 
-	function triggerRetry() {
-		retry = true;
+        return () => clearInterval(interval);
+    });
 
-		setTimeout(() => {
-			retry = false;
-		}, 1000);
-	}
+    function triggerRetry() {
+        retry = true;
+        setTimeout(() => {
+            retry = false;
+        }, 1000);
+    }
 
-	function reload() {
-		invalidateAll();
-		triggerRetry();
-		clearInterval(interval);
-	}
+    function reload() {
+        invalidateAll();
+        triggerRetry();
+    }
 </script>
 
-<div class="mx-auto max-w-5xl px-5">
-	<div class="py-5 flex flex-col-reverse gap-2 md:gap-5 md:flex-row justify-between">
-		<div class="">
-			<Select
-				value={orderBy}
-				onValueChange={(value: any) => {
-					orderBy = value;
-				}}
-				label={'Ordem'}
-				options={[
-					{
-						key: 'channels',
-						order: 'desc',
-						label: 'Canais (desc)'
-					},
-					{
-						key: 'capacity',
-						order: 'desc',
-						label: 'Capacidade (desc)'
-					}
-				]}
-			/>
-		</div>
+<div class="flex flex-col-reverse justify-between gap-2 py-5 md:flex-row md:gap-5">
+	<div class="">
+		<Select
+			value={orderBy}
+			onValueChange={(value: any) => {
+				orderBy = value;
+			}}
+			label={'Ordem'}
+			options={[
+				{
+					key: 'channels',
+					order: 'desc',
+					label: 'Canais (desc)'
+				},
+				{
+					key: 'capacity',
+					order: 'desc',
+					label: 'Capacidade (desc)'
+				}
+			]}
+		/>
+	</div>
 
+	<div class="flex justify-end">
 		<button
-			class="flex cursor-pointer items-center justify-end gap-2 rounded-xl bg-black/5 px-5 py-3 text-xs font-thin hover:bg-black/20 md:text-base"
+			class="flex cursor-pointer items-center justify-end gap-2 rounded-xl lg:bg-black/5 md:px-5 md:py-3 text-xs font-thin hover:bg-black/20 md:text-base"
 			onclick={() => reload()}
+			title="automatic reload after 1 minute"
 		>
 			<span class="animate-pulse">
 				{retry ? 'Atualizando...' : `Atualizar dados`}
@@ -86,20 +87,20 @@
 			>
 		</button>
 	</div>
-
-	<main class="mb-10">
-		<div class="flex flex-col md:grid gap-5 md:grid-cols-2">
-			{#await data.nodes}
-				{#each Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`) as item}
-					<CardLoading />
-				{/each}
-			{:then nodes: NodeItem[]}
-				{#each _.sortBy( nodes, [_.prop(orderBy.key as any), orderBy.order as any], ) as node, index}
-					<Card {node} index={index + 1} />
-				{/each}
-			{:catch error}
-				<h2>Ocorreu um erro inesperado, recarregue a página.</h2>
-			{/await}
-		</div>
-	</main>
 </div>
+
+<main class="mb-10">
+	<div class="flex flex-col gap-5 md:grid md:grid-cols-2">
+		{#await data.nodes}
+			{#each Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`) as item}
+				<CardLoading />
+			{/each}
+		{:then nodes: NodeItem[]}
+			{#each _.sortBy(nodes, [_.prop(orderBy.key as any), orderBy.order as any]) as node, index}
+				<Card {node} index={index + 1} />
+			{/each}
+		{:catch error}
+			<h2>Ocorreu um erro inesperado, recarregue a página.</h2>
+		{/await}
+	</div>
+</main>
