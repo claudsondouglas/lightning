@@ -1,4 +1,6 @@
 <script lang="ts">
+	import formatSatoshisToBitcoins from "$lib/utils/formatSatoshisToBitcoins";
+
 	export let node;
 </script>
 
@@ -7,7 +9,7 @@
 	<h2>{node?.alias}</h2>
 	channels: {node?.channels}<br/>
 	{JSON.stringify(node?.country)}O país onde esse node está localizado.<br />
-	capacidade: {node?.capacity} SATS<br />
+	capacidade: {formatSatoshisToBitcoins(node?.capacity)} BTC<br />
 	Visto pela primeira vez em {node?.firstSeen}<br />
 	Atualizado em {node?.updatedAt}<br/>
 </div>
