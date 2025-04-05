@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Card from '$lib/components/Card.svelte';
+
 	export let data;
 </script>
 
@@ -11,8 +13,13 @@
 	{#await data.nodes}
 		loading...
 	{:then nodes}
-		{JSON.stringify(nodes)}
+		<div class="grid md:grid-cols-2 gap-10">
+			{#each nodes as node}
+				<Card node={node} />
+			{/each}
+		</div>
 	{:catch error}
+    oxi
 		{error}
 	{/await}
 </div>
