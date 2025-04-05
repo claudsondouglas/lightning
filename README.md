@@ -1,3 +1,7 @@
+# preview
+[lightning.claudson.dev](https://lightning.claudson.dev)
+
+
 ## Libraries & frameworks used
 I set up the project using the default SvelteKit setup with TypeScript, Svelte, Tailwind, Vitest, Playwright, and Prettier. I also added `@lucide/svelte` to use some icons, and `remeda` to handle sorting in the list.
 
