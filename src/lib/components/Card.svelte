@@ -1,5 +1,6 @@
 <script lang="ts">
 	import formatSatoshisToBitcoins from "$lib/utils/formatSatoshisToBitcoins";
+	import formatUnixToDatetime from "$lib/utils/formatUnixToDatetime";
 
 	export let node;
 </script>
@@ -10,6 +11,6 @@
 	channels: {node?.channels}<br/>
 	{JSON.stringify(node?.country)}O país onde esse node está localizado.<br />
 	capacidade: {formatSatoshisToBitcoins(node?.capacity)} BTC<br />
-	Visto pela primeira vez em {node?.firstSeen}<br />
+	Visto pela primeira vez em {formatUnixToDatetime(node?.firstSeen)}<br />
 	Atualizado em {node?.updatedAt}<br/>
 </div>
