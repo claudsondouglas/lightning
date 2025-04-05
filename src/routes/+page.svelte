@@ -10,16 +10,18 @@
 		<p>Top 100 nodes lightning em tempo real.</p>
 	</div>
 
-	{#await data.nodes}
-		loading...
-	{:then nodes}
-		<div class="grid md:grid-cols-2 gap-10">
-			{#each nodes as node, index}
-				<Card node={node} index={index+1}/>
-			{/each}
-		</div>
-	{:catch error}
-    oxi
-		{error}
-	{/await}
+	<main class="mb-10">
+		{#await data.nodes}
+			loading...
+		{:then nodes}
+			<div class="grid gap-10 md:grid-cols-2">
+				{#each nodes as node, index}
+					<Card {node} index={index + 1} />
+				{/each}
+			</div>
+		{:catch error}
+			oxi
+			{error}
+		{/await}
+	</main>
 </div>

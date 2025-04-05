@@ -1,5 +1,103 @@
 @import 'tailwindcss';
 
+
+@font-face {
+    font-family: Bradford;
+    src: url(/fonts/Bradford-Regular.ttf), url(/fonts/Bradford-Regular.otf) format("opentype"), url(/fonts/BradfordLLSub-Regular.woff) format("woff"), url(/fonts/BradfordLLSub-Regular.woff2) format("woff2"), url(/fonts/BradfordLLWeb-Regular.woff) format("woff"), url(/fonts/BradfordLLWeb-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: BradfordItalic;
+    src: url(/fonts/Bradford-Italic.otf) format("opentype"), url(/fonts/BradfordLLSub-Italic.woff) format("woff"), url(/fonts/BradfordLLSub-Italic.woff2) format("woff2"), url(/fonts/BradfordLLWeb-Italic.woff) format("woff"), url(/fonts/BradfordLLWeb-Italic.woff2) format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoBlack;
+    src: url(/fonts/ABCGinto-Black.otf) format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoBold;
+    src: url(/fonts/ABCGinto-Bold.otf) format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoBoldItalic;
+    src: url(/fonts/ABCGinto-BoldItalic.otf) format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: Ginto;
+    src: url(/fonts/ABCGinto-Light.otf) format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoLightItalic;
+    src: url(/fonts/ABCGinto-LightItalic.otf) format("opentype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoMedium;
+    src: url(/fonts/ABCGinto-Medium.otf) format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoMediumItalic;
+    src: url(/fonts/ABCGinto-MediumItalic.otf) format("opentype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: Ginto;
+    src: url(/fonts/ABCGinto-Regular.otf) format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoItalic;
+    src: url(/fonts/ABCGinto-RegularItalic.otf) format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: GintoNormal;
+    src: url(/fonts/ABCGintoNormal-Medium.otf) format("otf"), url(/fonts/ABCGintoNormal-Medium.woff2) format("woff2"), url(/fonts/ABCGintoNormal-Medium.woff) format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
 body {
+    font-family: 'Ginto', Arial, Helvetica, sans-serif;
     @apply bg-gray-100;
 }
