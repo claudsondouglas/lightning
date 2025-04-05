@@ -1,5 +1,6 @@
 ## Libraries & frameworks used
-SvelteKit and SvelteKit https://svelte.dev/
+SvelteKit and SvelteKit https://svelte.dev/<br/>
+TailwindCSS https://tailwindcss.com/
 
 ## Steps to run
 Install all dependencies with `npm install` (or `pnpm install` or `yarn`)
