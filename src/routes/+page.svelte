@@ -14,8 +14,8 @@
 		loading...
 	{:then nodes}
 		<div class="grid md:grid-cols-2 gap-10">
-			{#each nodes as node}
-				<Card node={node} />
+			{#each nodes as node, index}
+				<Card node={node} index={index+1}/>
 			{/each}
 		</div>
 	{:catch error}
