@@ -1,13 +1,21 @@
 <script lang="ts">
+    import * as _ from "remeda";
 	import { invalidateAll } from '$app/navigation';
 	import Card from '$lib/components/Card.svelte';
 	import CardLoading from '$lib/components/CardLoading.svelte';
+	import Select from '$lib/components/Select.svelte';
 	import { onMount } from 'svelte';
 
 	export let data;
 
+	let orderBy = {
+		key: 'channels',
+		order: 'desc',
+		label: 'canais'
+	};
+
 	let retry = false;
-	let interval : any; // i need to clean the interval to not update two times if i click to make a reload
+	let interval: any; // i need to clean the interval to not update two times if i click to make a reload
 
 	onMount(() => {
 		interval = setInterval(() => {
@@ -31,14 +39,31 @@
 </script>
 
 <div class="mx-auto max-w-5xl">
-	<div class="flex items-center justify-between mb-10 py-5">
+	<div class="flex items-center justify-between py-5">
 		<div class="">
-			<h1 class="text-4xl font-bold">Lightning</h1>
-			<p>Top 100 nodes lightning em tempo real.</p>
+			<Select
+				value={orderBy}
+				onValueChange={(value: any) => {
+					orderBy = value;
+				}}
+				label={'Ordem'}
+				options={[
+					{
+						key: 'channels',
+						order: 'desc',
+						label: 'Canais (desc)'
+					},
+					{
+						key: 'capacity',
+						order: 'desc',
+						label: 'Capacidade (desc)'
+					}
+				]}
+			/>
 		</div>
 
 		<button
-			class="flex cursor-pointer items-center justify-end gap-2 rounded-xl px-5 py-3 text-xs font-thin bg-black/5 hover:bg-black/20 md:text-base"
+			class="flex cursor-pointer items-center justify-end gap-2 rounded-xl bg-black/5 px-5 py-3 text-xs font-thin hover:bg-black/20 md:text-base"
 			onclick={() => reload()}
 		>
 			<span class="animate-pulse">
@@ -69,7 +94,7 @@
 					<CardLoading />
 				{/each}
 			{:then nodes: NodeItem[]}
-				{#each nodes as node, index}
+				{#each _.sortBy( nodes, [_.prop(orderBy.key as any), orderBy.order as any], ) as node, index}
 					<Card {node} index={index + 1} />
 				{/each}
 			{:catch error}
