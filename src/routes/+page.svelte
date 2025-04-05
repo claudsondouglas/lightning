@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from '$lib/components/Card.svelte';
+	import CardLoading from '$lib/components/CardLoading.svelte';
 
 	export let data;
 </script>
@@ -11,17 +12,18 @@
 	</div>
 
 	<main class="mb-10">
-		{#await data.nodes}
-			loading...
-		{:then nodes : NodeItem[]}
-			<div class="grid gap-5 md:grid-cols-2">
-				{#each nodes as node, index}
-					<Card {node} index={index + 1} /> 
+		<div class="grid gap-5 md:grid-cols-2">
+			{#await data.nodes}
+				{#each Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`) as item}
+					<CardLoading />
 				{/each}
-			</div>
-		{:catch error}
-			oxi
-			{error}
-		{/await}
+			{:then nodes: NodeItem[]}
+				{#each nodes as node, index}
+					<Card {node} index={index + 1} />
+				{/each}
+			{:catch error}
+				<h2>Ocorreu um erro inesperado, recarregue a página.</h2>
+			{/await}
+		</div>
 	</main>
 </div>
