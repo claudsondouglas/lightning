@@ -1,7 +1,7 @@
 ## Libraries & frameworks used
 SvelteKit and SvelteKit https://svelte.dev/<br/>
-TailwindCSS https://tailwindcss.com/
-
+TailwindCSS https://tailwindcss.com/<br/>
+Lucide https://lucide.dev/<br/>
 
 i used https://flagcdn.com/ to get the flags using iso_code
 
