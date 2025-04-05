@@ -1,5 +1,3 @@
-//import { DateTime } from "luxon";
-
 export default function formatUnixToDatetime(unix: number): string {
     const date = new Date(unix * 1000);
 

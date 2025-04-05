@@ -32,7 +32,6 @@ test('renders complete node card information from mocked API', async ({ page }) 
   await expect(page.getByText('ACINQ')).toBeVisible(); // alias
   await expect(page.getByText('Canais: 2.908')).toBeVisible(); // channels
   await expect(page.getByText('360,10516297')).toBeVisible(); // capacity
-  //await page.pause();
   await expect(page.getByText('United States')).toBeVisible(); // country
   await expect(page.getByText('05/04/2018 às 12:13')).toBeVisible(); // firstSeen
   await expect(page.getByText('23/08/2022 às 14:15')).toBeVisible(); // updatedAt
