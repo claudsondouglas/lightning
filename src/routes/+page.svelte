@@ -38,8 +38,8 @@
 	}
 </script>
 
-<div class="mx-auto max-w-5xl">
-	<div class="flex items-center justify-between py-5">
+<div class="mx-auto max-w-5xl px-5">
+	<div class="py-5 flex flex-col-reverse gap-2 md:gap-5 md:flex-row justify-between">
 		<div class="">
 			<Select
 				value={orderBy}
@@ -88,7 +88,7 @@
 	</div>
 
 	<main class="mb-10">
-		<div class="grid gap-5 md:grid-cols-2">
+		<div class="flex flex-col md:grid gap-5 md:grid-cols-2">
 			{#await data.nodes}
 				{#each Array.from({ length: 10 }, (_, i) => `Item ${i + 1}`) as item}
 					<CardLoading />

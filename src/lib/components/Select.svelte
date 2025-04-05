@@ -38,7 +38,7 @@
 	}}
 >
 	<button
-		class="flex w-full cursor-pointer flex-col rounded-xl bg-white p-3 px-5 text-left duration-300 hover:bg-gray-200 md:w-auto md:min-w-[250px]"
+		class="flex cursor-pointer flex-col rounded-xl bg-white p-3 px-5 text-left duration-300 hover:bg-gray-200 md:w-auto md:min-w-[250px] w-full"
 		onclick={() => (open = !open)}
 	>
 		<span class="-mb-1 text-xs font-thin opacity-45">{label}</span>

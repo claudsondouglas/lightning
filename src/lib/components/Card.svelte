@@ -8,7 +8,7 @@
 	export let node : NodeItem, index: number;
 </script>
 
-<div class="cardnode bg-white p-5">
+<div class="cardnode bg-white p-5 w-full">
 	<div class="flex items-center justify-between gap-3">
 		<div class="flex items-center gap-3">
 			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white"
