@@ -2,18 +2,19 @@
 	import formatSatoshisToBitcoins from '$lib/utils/formatSatoshisToBitcoins';
 	import formatUnixToDatetime from '$lib/utils/formatUnixToDatetime';
 	import getLocalizedValue from '$lib/utils/getLocalizedValue';
+	import { KeyRound } from '@lucide/svelte';
+	import CardCopyButton from './CardCopyButton.svelte';
 
-	export let node, index;
+	export let node : NodeItem, index: number;
 </script>
 
-<div class="bg-white p-5 cardnode">
+<div class="cardnode bg-white p-5">
 	<div class="flex items-center justify-between gap-3">
 		<div class="flex items-center gap-3">
-			<span
-				class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white"
+			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white"
 				>{index}</span
 			>
-			<h2 class="text-lg font-bold md:text-xl" data-field="alias">
+			<h2 class="text-lg font-bold md:text-xl">
 				{node.alias}
 			</h2>
 		</div>
@@ -31,31 +32,40 @@
 	<div class="mt-3">
 		<div>
 			<strong>Canais:</strong>
-			<span data-field="channels">{node.channels.toLocaleString('pt-BR', {})}</span>
+			<span class="font-light">{node.channels.toLocaleString('pt-BR', {})}</span>
 		</div>
 		<div class="flex items-center gap-1">
 			<strong>Capacidade:</strong>
-			{formatSatoshisToBitcoins(node.capacity)} BTC
+			<span class="font-light">
+				{formatSatoshisToBitcoins(node.capacity)} BTC
+			</span>
 		</div>
 
 		<div class="flex gap-1">
 			<strong>Localização:</strong>
-			{!getLocalizedValue(node.city) && !getLocalizedValue(node.country) ? 'Não informado' : ''}
-			{getLocalizedValue(node.city)}
-			{getLocalizedValue(node.city) && '/'}
-			{getLocalizedValue(node.country)}
+			<span class="font-light">
+				{!getLocalizedValue(node.city) && !getLocalizedValue(node.country) ? 'Desconhecida' : ''}
+				{getLocalizedValue(node.city)}
+				{getLocalizedValue(node.city) && '/'}
+				{getLocalizedValue(node.country)}
+			</span>
 		</div>
-
-        <div class="flex gap-1">
-			<strong>Visto pela primeira:</strong> {formatUnixToDatetime(node.firstSeen)}
-        </div>
-
-        <div class="flex gap-1">
-			<strong>Ultima atualização:</strong> {formatUnixToDatetime(node.updatedAt)}
-        </div>
 	</div>
 
-	<div class="bg-gray-100 truncate p-2 mt-5 text-sm">
-		<span class="flex-1 truncate">{node.publicKey}</span>
-    </div>
+	<div class="mt-3 border-t border-gray-200 pt-3 flex flex-col gap-2">
+		<div class="text-xs font-light">
+			<div id="placement-1" class="bg-transparent text-gray-500">
+				Visto pela primeira em {formatUnixToDatetime(node.firstSeen)} e atualizado em {formatUnixToDatetime(
+					node.updatedAt
+				)}
+			</div>
+		</div>
+
+		<CardCopyButton value={node.publicKey}>
+			<span>
+				<KeyRound class="w-4 text-gray-600" />
+			</span>
+			<span class="flex-1 truncate">{node.publicKey}</span>
+		</CardCopyButton>
+	</div>
 </div>

@@ -13,10 +13,10 @@
 	<main class="mb-10">
 		{#await data.nodes}
 			loading...
-		{:then nodes}
-			<div class="grid gap-10 md:grid-cols-2">
+		{:then nodes : NodeItem[]}
+			<div class="grid gap-5 md:grid-cols-2">
 				{#each nodes as node, index}
-					<Card {node} index={index + 1} />
+					<Card {node} index={index + 1} /> 
 				{/each}
 			</div>
 		{:catch error}
