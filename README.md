@@ -1,38 +1,24 @@
-# sv
+## Libraries & frameworks used
+SvelteKit and SvelteKit https://svelte.dev/
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Steps to run
+Install all dependencies with `npm install` (or `pnpm install` or `yarn`)
 
-## Creating a project
+Start a development server: `npm run dev`.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
+To create a production version of your app: `npm run build`.
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## What areas of the web app did you focus on?
+
+## What was the reason for your focus? What problems were you trying to solve?
+
+## How long did you spend on this project?
+
+## Did you make any trade-offs for this project? What would you have done differently with more time?
+
+## What do you think is the weakest part of your project?
+
+## Is there any other information you’d like us to know?
