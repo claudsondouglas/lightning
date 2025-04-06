@@ -127,6 +127,8 @@
 				}
 			}}
 			class="relative flex h-12 w-12 cursor-pointer items-center justify-center rounded bg-current/10 duration-300"
+			id="toggle-theme"
+			data-value={dark ? 'dark':'light'}
 		>
 			{#if dark}
 				<svg
