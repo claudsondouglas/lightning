@@ -22,7 +22,7 @@ I focused on delivering a good experience using the mobile-first concept and aut
 Using a mobile-first approach, I tried to avoid creating layouts that would look bad on other devices. I aimed to highlight the most important information. With the automatic tests, I made sure everything that was requested was working correctly.
 
 ## How long did you spend on this project?
-I used the tool Toggl to track the time spent on the project. Excluding the README, I spent a total of 3 hours and 44 minutes.
+I used the tool Toggl to track the time spent on the project. Excluding the README, I spent a total of 4 hours and 3 minutes.
 
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
 Yes. I'm not very familiar with Svelte, I chose to do things in the simplest way possible, using the SvelteKit way. I also avoided using extra dependencies.
