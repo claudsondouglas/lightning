@@ -25,7 +25,7 @@
 
 	<button
 		onclick={() => handle()}
-		class="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-500 dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-500"
+		class="copy inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-500 dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-500"
 		title="copiar"
 	>
 		{#if !copied}

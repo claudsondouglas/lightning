@@ -1,6 +1,12 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, chromium  } from '@playwright/test';
 
-test('renders complete node card information from mocked API', async ({ page }) => {
+test('renders complete node card information from mocked API', async ({ }) => {
+  const browser = await chromium.launch();
+  const context = await browser.newContext({
+    permissions: ['clipboard-read', 'clipboard-write'],
+  });
+  const page = await context.newPage();
+
   await page.route(
     'https://mempool.space/api/v1/lightning/nodes/rankings/connectivity',
     async (route) => {
@@ -35,4 +41,12 @@ test('renders complete node card information from mocked API', async ({ page }) 
   await expect(page.getByText('United States')).toBeVisible(); // country
   await expect(page.getByText('05/04/2018 às 12:13')).toBeVisible(); // firstSeen
   await expect(page.getByText('23/08/2022 às 14:15')).toBeVisible(); // updatedAt
+  
+  // testar clicar no botão de copiar
+  await page.click('button.copy');
+  await page.waitForTimeout(100);
+  const clipboard = await page.evaluate(async () => {
+    return await navigator.clipboard.readText();
+  });
+  expect(clipboard).toBe('03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f');
 });
