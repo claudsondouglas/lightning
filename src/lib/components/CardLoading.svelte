@@ -18,4 +18,20 @@
 		background-position-x: 100%;
 		animation: shimmer 1s infinite linear;
 	}
+
+	.dark {
+		.animation-shimer {
+			background: linear-gradient(-45deg, #222222 40%, #444444 50%, #222222 60%);
+			background-size: 300%;
+			background-position-x: 100%;
+			animation: shimmer 1s infinite linear;
+		}
+
+		.animation-shimer div {
+			background: linear-gradient(-45deg, #333333 40%, #5a5a5a 50%, #333333 60%);
+			background-size: 300%;
+			background-position-x: 100%;
+			animation: shimmer 1s infinite linear;
+		}
+	}
 </style>
